@@ -64,4 +64,10 @@ Using ESP makes the robot more versatile, as you can later add **Wi-Fi or Blueto
 
 ---
 
-## 📂 Repository Structure  
+## 🚀 Future Improvements  
+- Add **3–5 sensors** for smoother path following.  
+- Implement **PID control** for stability.  
+- Integrate **Wi-Fi (ESP32)** to monitor speed & position remotely.  
+- Expand into **maze-solving robot** with advanced algorithms.  
+
+---
