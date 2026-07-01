@@ -1,5 +1,11 @@
 # 🏁 Line Follower Robot – ESP32/ESP8266
 
+## 📌 Project Status
+**Status:** ESP robot prototype.  
+This repository contains a line-following robot sketch and wiring documentation aligned with the current GPIO assignments in `Line_Follower.ino`.
+
+---
+
 ## 📖 Project Overview
 This project demonstrates a **line follower robot** built using an ESP microcontroller, IR sensors, and DC motors.
 
