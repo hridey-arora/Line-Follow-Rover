@@ -1,73 +1,78 @@
-# 🏁 Line Follower Robot – ESP32/ESP8266  
+# 🏁 Line Follower Robot – ESP32/ESP8266
 
-## 📖 Project Overview  
-This project demonstrates a **Line Follower Robot** built using an **ESP microcontroller**, IR sensors, and DC motors.  
-The ESP reads sensor values and controls the motors through an L298N/L293D motor driver to follow a black line on a white surface.  
+## 📖 Project Overview
+This project demonstrates a **line follower robot** built using an ESP microcontroller, IR sensors, and DC motors.
 
-Using ESP makes the robot more versatile, as you can later add **Wi-Fi or Bluetooth features** for remote monitoring or control.  
+The ESP reads sensor values and controls the motors through an L298N/L293D motor driver so the robot can follow a black line on a white surface.
 
----
-
-## ⚙️ Features  
-- ✅ Detects black/white line using IR sensors.  
-- ✅ Autonomous movement using motor driver & DC motors.  
-- ✅ Runs on ESP32/ESP8266.  
-- ✅ Expandable with IoT features (remote control, monitoring).  
+Using an ESP board makes the robot easier to expand later with Wi-Fi or Bluetooth features for remote monitoring or control.
 
 ---
 
-## 🛠️ Components Used  
-- ESP32 / ESP8266 NodeMCU  
-- Motor Driver (L298N / L293D)  
-- 2 IR Line Sensors (left + right)  
-- 2 DC Motors + Robot chassis + caster wheel  
-- Battery pack (7–12V)  
-- Jumper wires  
+## ⚙️ Features
+- ✅ Detects black/white track lines using IR sensors.
+- ✅ Controls movement through a motor driver and DC motors.
+- ✅ Runs on ESP32/ESP8266-style boards with adjustable pin mappings.
+- ✅ Expandable with IoT features such as remote control or telemetry.
 
 ---
 
-## 🔌 Circuit Connections  
-
-| Component        | ESP Pin |
-|------------------|---------|
-| Left IR Sensor   | D5 (GPIO14) |
-| Right IR Sensor  | D4 (GPIO2)  |
-| Motor Driver IN1 | D12 (GPIO12)|
-| Motor Driver IN2 | D13 (GPIO13)|
-| Motor Driver IN3 | D14 (GPIO14)|
-| Motor Driver IN4 | D27 (GPIO27)|
-| Motor Driver ENA | 5V / PWM    |
-| Motor Driver ENB | 5V / PWM    |
-| Motors           | Motor Driver Outputs |
-
-*(You can reassign pins depending on your ESP board model.)*  
+## 🛠️ Components Used
+- ESP32 / ESP8266 NodeMCU
+- Motor driver such as L298N or L293D
+- 2 IR line sensors, left and right
+- 2 DC motors, robot chassis, and caster wheel
+- Battery pack, typically 7V to 12V depending on the motor driver
+- Jumper wires
 
 ---
 
-## 📜 How It Works  
-1. **IR sensors** detect black/white path.  
-2. ESP reads sensor states and controls motor driver inputs.  
-3. Movement logic:  
-   - Both sensors on white → Forward  
-   - Left sensor on black → Left turn  
-   - Right sensor on black → Right turn  
-   - Both sensors on black → Stop  
+## 🔌 Circuit Connections
+
+The table below matches the current `Line_Follower.ino` sketch.
+
+| Component | ESP Pin |
+|---|---|
+| Left IR Sensor | D5 / GPIO14 |
+| Right IR Sensor | D4 / GPIO2 |
+| Motor Driver IN1 | GPIO12 |
+| Motor Driver IN2 | GPIO13 |
+| Motor Driver IN3 | GPIO27 |
+| Motor Driver IN4 | GPIO26 |
+| Motor Driver ENA | 5V or PWM-capable speed pin |
+| Motor Driver ENB | 5V or PWM-capable speed pin |
+| Motors | Motor driver outputs |
+
+> Note: ESP board labels vary. If your board does not expose the same `D` labels, use the GPIO numbers from the sketch.
 
 ---
 
-## 💻 Usage Instructions  
-1. Assemble the robot chassis with ESP + motor driver + sensors.  
-2. Connect wiring as per the table.  
-3. Upload `Line_Follower.ino` via Arduino IDE (select ESP board).  
-4. Place robot on a track with a black line.  
-5. Robot follows the line autonomously 🚗.  
+## 📜 How It Works
+1. The IR sensors detect whether each side is over the black line or white surface.
+2. The ESP reads both sensor states.
+3. The sketch controls the motor driver:
+   - Both sensors on white → move forward
+   - Left sensor on black → turn left
+   - Right sensor on black → turn right
+   - Both sensors on black → stop
 
 ---
 
-## 🚀 Future Improvements  
-- Add **3–5 sensors** for smoother path following.  
-- Implement **PID control** for stability.  
-- Integrate **Wi-Fi (ESP32)** to monitor speed & position remotely.  
-- Expand into **maze-solving robot** with advanced algorithms.  
+## 💻 Usage Instructions
+1. Assemble the robot chassis with ESP board, motor driver, sensors, and motors.
+2. Connect the wiring according to the table above.
+3. Open `Line_Follower.ino` in the Arduino IDE.
+4. Select the correct ESP board and port.
+5. Upload the sketch.
+6. Place the robot on a high-contrast black-line track and test movement.
+
+---
+
+## 🚀 Future Improvements
+- Add 3 to 5 sensors for smoother path tracking.
+- Implement PID control for stability.
+- Add PWM speed control for sharper turns.
+- Integrate Wi-Fi telemetry on ESP32.
+- Expand into a maze-solving robot with advanced algorithms.
 
 ---
